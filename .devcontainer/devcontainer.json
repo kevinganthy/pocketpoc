@@ -1,0 +1,23 @@
+{
+	"name": "Bot référent",
+
+	"dockerComposeFile": ["../compose.yml", "./compose.yml"],
+	
+	"service": "devcontainer",
+	"workspaceFolder": "/workspace",
+	"shutdownAction": "stopCompose",
+
+	"customizations": {
+		"vscode": {
+		  "extensions": [
+			"ms-azuretools.vscode-docker",
+			"yzhang.markdown-all-in-one",
+			"redhat.vscode-yaml"
+		  ]
+		}
+	},
+
+	"forwardPorts": [80],
+	"remoteUser": "root",
+	"postCreateCommand": "git config --global --add safe.directory /workspace;"
+}

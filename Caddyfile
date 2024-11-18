@@ -1,0 +1,7 @@
+localhost:80 {
+    reverse_proxy http://front:5173
+}
+
+pb.localhost:80 {
+    reverse_proxy http://pocketbase:8090
+}

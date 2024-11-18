@@ -1,0 +1,12 @@
+services:
+  devcontainer:
+    build:
+      context: ./.devcontainer
+    volumes:
+      - .:/workspace
+      # Copy ssh keys to the container
+      - ~/.ssh:/root/.ssh:ro
+      # Copy git config to the container
+      - ~/.gitconfig:/etc/gitconfig
+      # Copy docker socket to the container
+      - /var/run/docker.sock:/var/run/docker.sock

@@ -1,0 +1,35 @@
+services:
+  pocketbase:
+    build:
+      context: ./pocketbase
+    volumes:
+      - ./pocketbase:/pb
+      - ./init.sql:/pb/init.sql
+    env_file:
+      - .env
+    
+  front:
+    build:
+      context: ./front
+      target: dev
+    volumes:
+      - ./front:/usr/src/app
+      - /usr/src/app/node_modules
+    env_file:
+      - .env
+
+  caddy:
+    image: caddy
+    ports:
+      - 80:80
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - front
+      - pocketbase
+
+volumes:
+  caddy_data:
+  caddy_config:
