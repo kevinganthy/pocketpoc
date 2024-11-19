@@ -31,10 +31,9 @@ func main() {
 		HooksPoolSize: 25,
 	})
 
-
 	// Serves static files from the provided public dir (if exists)
 	app.OnBeforeServe().Add(func(e *core.ServeEvent) error {
-		e.Router.GET("/*", apis.StaticDirectoryHandler(os.DirFS("./pb_public"), false))
+		e.Router.GET("/*", apis.StaticDirectoryHandler(os.DirFS("./pb_public"), true))
 		return nil
 	})
 
@@ -44,10 +43,10 @@ func main() {
 		err := db.Seed()
 		if err != nil {
 			log.Fatalf("Error during database seeding: %v", err)
-		}	
-        return nil
-    })
-	
+		}
+		return nil
+	})
+
 	// Create routes
 	app.OnBeforeServe().Add(func(e *core.ServeEvent) error {
 		e.Router.GET("/api/helloworld", func(c echo.Context) error {
@@ -70,12 +69,11 @@ func main() {
 				return apis.NewBadRequestError("response must be a string", nil)
 			}
 
-			return c.JSON(http.StatusOK, name + ", " + HELLO_WORLD_RESPONSE)
+			return c.JSON(http.StatusOK, name+", "+HELLO_WORLD_RESPONSE)
 		}, apis.RequireAdminAuth())
 
 		return nil
 	})
-
 
 	// Start the app
 	if err := app.Start(); err != nil {

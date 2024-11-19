@@ -1,5 +1,10 @@
 # Pocket POC
 
+**TODO :**
+
+* [ ] CI/CD pour build et push l'image docker
+* [ ] Auth sur le front
+
 ## Utilisation
 
 > :warning: Penser à créer le fichier `.env` à partir du fichier `.env.example`
@@ -23,8 +28,8 @@ Au choix :
 
 Custom endpoints :
 
-* `pb.localhost/api/helloworld`
-* `pb.localhost/api/hello/:id`
+* `pb.localhost/api/helloworld` (public)
+* `pb.localhost/api/hello/:id` (private)
 
 ## Going to production
 
@@ -37,7 +42,7 @@ docker build -t pocketpoc --build-arg VITE_APP_NAME="Pocketpoc" .
 Pour lancer l'image, il suffit de lancer la commande :
 
 ```sh
-docker run --env-file=.env -p 8090:8090 pocketpoc
+docker run --env-file=.env -p 8090:8090 -v ~/pocketpoc:/app/pb_data pocketpoc
 ```
 
 Le fichier `.env` doit contenir les variables d'environnement suivantes :
