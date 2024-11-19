@@ -2,7 +2,6 @@
 
 **TODO :**
 
-* [ ] CI/CD pour build et push l'image docker
 * [ ] Auth sur le front
 
 ## Utilisation
@@ -33,7 +32,20 @@ Custom endpoints :
 
 ## Going to production
 
-Une image docker est générée à l'aide du `Dockerfile` à la racine du projet avec la commande :
+Le fichier `.env` doit contenir les variables d'environnement suivantes :
+
+* POCKET_URL
+* POCKET_PORT
+
+### From DockerHub
+
+```sh
+docker run --env-file=.env -p 8090:8090 -v ~/pocketpoc:/app/pb_data kevinganthy/pocketpoc
+```
+
+### Build from source
+
+Une image docker peut être générée à l'aide du `Dockerfile` à la racine du projet avec la commande :
 
 ```sh
 docker build -t pocketpoc --build-arg VITE_APP_NAME="Pocketpoc" .
@@ -44,10 +56,3 @@ Pour lancer l'image, il suffit de lancer la commande :
 ```sh
 docker run --env-file=.env -p 8090:8090 -v ~/pocketpoc:/app/pb_data pocketpoc
 ```
-
-Le fichier `.env` doit contenir les variables d'environnement suivantes :
-
-* DISCORD_BOT_TOKEN
-* OPENAI_API_KEY
-* POCKET_URL
-* POCKET_PORT
