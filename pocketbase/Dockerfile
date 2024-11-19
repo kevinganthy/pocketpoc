@@ -4,6 +4,10 @@ ENV POCKET_PORT=8090
 
 WORKDIR /pb
 
+# Add sqlite3 to execute dump on demand
+RUN apk update && apk upgrade
+RUN apk add --no-cache sqlite
+
 RUN touch init.sql
 
 EXPOSE ${POCKET_PORT}
