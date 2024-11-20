@@ -1,9 +1,5 @@
 # Pocket POC
 
-**TODO :**
-
-* [ ] Auth sur le front
-
 ## Utilisation
 
 > :warning: Penser à créer le fichier `.env` à partir du fichier `.env.example`
