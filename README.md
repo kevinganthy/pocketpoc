@@ -2,6 +2,8 @@
 
 Preview disponible sur Render <https://pocketpoc-latest.onrender.com>.
 
+Image Docker Hub <https://hub.docker.com/repository/docker/kevinganthy/pocketpoc/general>.
+
 ## Utilisation
 
 > :warning: Penser à créer le fichier `.env` à partir du fichier `.env.example`
