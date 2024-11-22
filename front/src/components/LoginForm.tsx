@@ -1,7 +1,6 @@
 import { action, redirect } from "@solidjs/router";
 import { Component } from "solid-js";
 import { usePb } from "./context/PbContext";
-import { Toaster } from "solid-toast";
 import toast from "solid-toast";
 
 const LoginForm: Component = () => {
@@ -31,10 +30,9 @@ const LoginForm: Component = () => {
     }
   });
 
+  
   return (
     <>
-      <Toaster />
-
       <form action={login} method="post" class="flex flex-col gap-4">
         <label class="input input-bordered flex items-center gap-2">
           <svg
