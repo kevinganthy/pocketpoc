@@ -19,7 +19,7 @@ const Header: Component = () => {
         
         <div class="navbar-end">
           <form action={logout} method="post">
-            <input type="submit" class="btn" value="Déconnexion" />
+            <input type="submit" class="btn btn-sm" value="Déconnexion" />
           </form>
         </div>
       </div>

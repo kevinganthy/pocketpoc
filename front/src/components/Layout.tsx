@@ -12,11 +12,11 @@ const Layout: Component = ({ children }: ParentProps) => {
   }
 
   return (
-    <>
+    <div class="h-screen w-screen flex flex-col">
       <Toaster />
       <Header />
-      <main class="container mx-auto">{children}</main>
-    </>
+      <main class="flex flex-col grow w-full">{children}</main>
+    </div>
   );
 };
 

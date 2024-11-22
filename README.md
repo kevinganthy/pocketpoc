@@ -36,7 +36,10 @@ Le fichier `.env` doit contenir les variables d'environnement suivantes :
 ### From DockerHub
 
 ```sh
+# With env file
 docker run --env-file=.env -p 8090:8090 -v ~/pocketpoc:/app/pb_data kevinganthy/pocketpoc
+# With env var
+docker run -e HELLO_WORLD_RESPONSE="Salut" -p 8090:8090 -v ~/pocketpoc:/app/pb_data kevinganthy/pocketpoc
 ```
 
 ### Build from source
@@ -50,5 +53,8 @@ docker build -t pocketpoc --build-arg VITE_APP_NAME="Pocketpoc" .
 Pour lancer l'image, il suffit de lancer la commande :
 
 ```sh
+# With env file
 docker run --env-file=.env -p 8090:8090 -v ~/pocketpoc:/app/pb_data pocketpoc
+# With env var
+docker run -e HELLO_WORLD_RESPONSE="Salut" -p 8090:8090 -v ~/pocketpoc:/app/pb_data pocketpoc
 ```
