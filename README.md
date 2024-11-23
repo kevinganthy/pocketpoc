@@ -32,10 +32,11 @@ Custom endpoints :
 
 ## Going to production
 
-Le fichier `.env` doit contenir les variables d'environnement suivantes :
+Le fichier `.env` peut contenir les variables d'environnement suivantes :
 
 * POCKET_URL
 * POCKET_PORT
+* HELLO_WORLD_RESPONSE
 
 ### From DockerHub
 
@@ -62,3 +63,10 @@ docker run --env-file=.env -p 8090:8090 -v ~/pocketpoc:/app/pb_data pocketpoc
 # With env var
 docker run -e HELLO_WORLD_RESPONSE="Salut" -p 8090:8090 -v ~/pocketpoc:/app/pb_data pocketpoc
 ```
+
+### Oauth
+
+L'autentification est possible via Google ou Github en reseignants les champs `client_id` et `client_secret`. Liens pour les créer :
+
+- [Github](https://github.com/settings/applications/2786757)
+- [Google](https://console.cloud.google.com/apis/credentials)
