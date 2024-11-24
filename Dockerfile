@@ -6,7 +6,7 @@ RUN npm i
 FROM deps-front AS build-front
 ARG VITE_APP_NAME="Pocketpoc"
 ARG VITE_APP_DESCRIPTION="A simple POC for Pocketbase with SolidJS."
-ARG VITE_API_URL="http://0.0.0.0:8090"
+ARG VITE_API_URL="/"
 WORKDIR /app
 COPY --from=deps-front /app .
 RUN npm run build

@@ -68,5 +68,5 @@ docker run -e HELLO_WORLD_RESPONSE="Salut" -p 8090:8090 -v ~/pocketpoc:/app/pb_d
 
 L'autentification est possible via Google ou Github en reseignants les champs `client_id` et `client_secret`. Liens pour les créer :
 
-- [Github](https://github.com/settings/applications/2786757)
-- [Google](https://console.cloud.google.com/apis/credentials)
+* [Github](https://github.com/settings/applications/2786757)
+* [Google](https://console.cloud.google.com/apis/credentials)
